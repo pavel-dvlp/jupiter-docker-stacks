@@ -1,10 +1,17 @@
-FROM pavelkrylov/jupyter-minimal-notebook-alpine:latest
+ARG REGISTRY=ghcr.io
+ARG OWNER=pavel-dvlp
+ARG BASE_IMAGE_VERSION=0.1
+ARG BASE_IMAGE=$REGISTRY/$OWNER/jupiter-docker-stacks/minimal-notebook-alpine:$BASE_IMAGE_VERSION
+FROM $BASE_IMAGE
 
 LABEL maintainer="Pavel Krylov <pavel.dvlp@gmail.com>"
 
 COPY setup_julia.py setup-julia-packages.sh /opt/setup-scripts/
 
 USER root
+RUN fix-permissions /opt/setup-scripts/ && \
+    chmod a+rx /opt/setup-scripts/setup_julia.py && \
+    chmod a+rx /opt/setup-scripts/setup-julia-packages.sh
 
 RUN apk update && apk add --no-cache \
     curl
