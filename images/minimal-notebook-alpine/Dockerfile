@@ -30,7 +30,7 @@ RUN apk update && apk add --no-cache \
     #   that reaps zombie processes and such of the actual executable we want to start
     #   See https://github.com/krallin/tini#why-tini for details
     tini \
-    wget 
+    wget
 
 # RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen 
 # RUN echo "C.UTF-8 UTF-8" >> /etc/locale.gen
@@ -48,13 +48,6 @@ ENV HOME="/home/${NB_USER}"
 # Copy a script that we will use to correct permissions after running certain commands
 COPY fix-permissions /usr/local/bin/fix-permissions
 RUN chmod a+rx /usr/local/bin/fix-permissions
-
-# Enable prompt color in the skeleton .bashrc before creating the default NB_USER
-# hadolint ignore=SC2016
-# RUN sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' /etc/skel/.bashrc && \
-#     # More information in: https://github.com/jupyter/docker-stacks/pull/2047
-#     # and docs: https://docs.conda.io/projects/conda/en/latest/dev-guide/deep-dives/activation.html
-#     echo 'eval "$(conda shell.bash hook)"' >> /etc/skel/.bashrc
 
 # Delete existing user with UID="${NB_UID}" if it exists
 # hadolint ignore=SC2046
