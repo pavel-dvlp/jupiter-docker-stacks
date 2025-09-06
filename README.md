@@ -1,3 +1,7 @@
+# About project
+
+This project is a fork of https://github.com/jupyter/docker-stacks
+
 # Jupyter Docker Stacks
 
 [![GitHub Actions badge](https://github.com/jupyter/docker-stacks/actions/workflows/docker.yml/badge.svg)](https://github.com/jupyter/docker-stacks/actions/workflows/docker.yml?query=branch%3Amain "Docker images build status")
