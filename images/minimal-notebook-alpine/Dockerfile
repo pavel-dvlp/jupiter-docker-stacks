@@ -77,7 +77,7 @@ RUN apk add --no-cache \
     py3-psutil
 
 RUN pip install --break-system-packages --no-cache-dir --compile \
-    notebook
+    notebook==6.5.7
 
 # Setup work directory for backward-compatibility
 RUN mkdir "/home/${NB_USER}/work" && mkdir "/home/${NB_USER}/.jupyter"

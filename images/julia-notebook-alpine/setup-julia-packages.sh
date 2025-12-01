@@ -32,7 +32,14 @@ julia -e '
 import Pkg;
 Pkg.add([
     "IJulia",
-    "Pluto"
+    "Pluto",
+    "Plots",
+    "PlotlyJS",
+    "Dash",
+    "WebIO",
+    "Interact",
+    "Colors",
+    "StatsPlots"
 ]);
 Pkg.precompile();
 '
