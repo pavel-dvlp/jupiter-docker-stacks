@@ -39,7 +39,10 @@ Pkg.add([
     "WebIO",
     "Interact",
     "Colors",
-    "StatsPlots"
+    "StatsPlots",
+    "LaTeXStrings",
+    "LinearAlgebra",
+    "Optim"
 ]);
 Pkg.precompile();
 '
